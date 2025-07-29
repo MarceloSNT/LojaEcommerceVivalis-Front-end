@@ -38,6 +38,6 @@ function listarProdutos() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("botaoID").addEventListener("click", listarProdutos);
+  document.getElementById("botaoId").addEventListener("click", listarProdutos);
   listarProdutos();
 });
