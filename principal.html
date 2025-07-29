@@ -18,17 +18,27 @@
         <header class="bg-success p-3">
             <img src="Imagens/logo.png" alt="Imagem logo" class="d-grid mx-auto">
         </header>
-        <div class="btn-group">
-            <select name="" id="selectId" class="btn-group">
-                <option value="">Escolha uma opção</option>
-                <option value="perfume">Perfume</option>
-                <option value="shampoo">Shampoo</option>
-                <option value="sabonete">Sabonete</option>
-                <option value="difusorAroma">Difusor de Aromas</option>
-            </select>
-            <button id="botaoID" class="btn btn-success btn-group">Filtrar</button>
-        </div>
+         <div class="container text-center">
+      <h1 class="mt-5">Filtro por Categoria</h1>
+      <div class="btn-group mb-4 mt-4" id="filtros">
+        <button class="btn btn-outline-primary active" data-categoria="">
+          Todas
+        </button>
+        <button class="btn btn-outline-primary" data-categoria="perfume">
+          Frutas
+        </button>
+        <button class="btn btn-outline-primary" data-categoria="sabonete">
+          Vegetais
+        </button>
+        <button class="btn btn-outline-primary" data-categoria="shampoo">
+          Laticínios
+        </button>
+        <button class="btn btn-outline-primary" data-categoria="difusorAroma">
+          Carnes
+        </button>
+      </div>
         <div id="mostrar-produtos">
+            <!-- Produtos serão renderizados aqui -->
 
         </div>
 
