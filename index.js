@@ -8,7 +8,7 @@ const produtos = [
   },
   {
     nome: "Noite Intensa",
-    descricao: "Aroma unissex amadeirado com especiarias quentes; sofisticado para eventos especiais.",
+    descricao: "Aroma unissex amadeirado com especiarias quentes; sofisticado.",
     categoria: "perfume",
     preco: 219.90,
     imagem: "imagens/noite-intensa-perfume.jpg"
@@ -69,12 +69,13 @@ function renderizarProdutos(lista) {
     const col = document.createElement("div");
     col.className = "mb-5 col-md-4 col-lg-3";
     col.innerHTML = `
-      <div class="cardTema text-dark bg-light card mb-5 border border-dark rounded rounded-3 text-center  p-0 pb-3 h-100">
+      <div class="categorias cardTema text-dark bg-light card mb-5 border border-dark rounded rounded-3 text-center  p-0 pb-3 h-100">
         <img src="${produto.imagem}" class="imgCards card-img-top image-fluid" "alt="${produto.nome}">
-        <div class="  card-body d-flex flex-column">
-          <h5 class="  card-title">${produto.nome}</h5>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">${produto.nome}</h5>
+          <p class="card-text">Categoria: ${produto.categoria}</p>
           <p class="card-text">${produto.descricao}</p>
-          <h3>R$${produto.preco}</h3>
+          <h3 class="text-center">R$${produto.preco}</h3>
           <a href="#" class="btn btn-success mt-auto">Adicionar ao carrinho</a>
         </div>
       </div>
@@ -100,6 +101,21 @@ document.getElementById("filtros").addEventListener("click", function(e) {
   }
 });
 
+function filtrarInput(){
+  const filtroInput = document.getElementById("inputValue").value.toLowerCase();
+  const name = document.querySelectorAll(".card-title");
+  const prod = document.querySelectorAll(".categorias");
+  prod.forEach(prods => {
+    if(prods.textContent.toLowerCase().includes(filtroInput) || prods.textContent.toLowerCase().includes(filtrarInput)){
+      prods.style.display = "block";
+    }else{
+      prods.style.display = "none";
+    }
+  })
+  
+  renderizarProdutos(filtrarCategoria(categoria));
+}
+
 // Inicialização
 renderizarProdutos(produtos);
 
@@ -118,5 +134,11 @@ btnTema.addEventListener("click",() => {
   cardTema.forEach(cards=>cards.classList.toggle("border-dark"));
   cardTema.forEach(cards=>cards.classList.toggle("bg-dark"));
   cardTema.forEach(cards=>cards.classList.toggle("text-white"));
+
+
+  if(tema === claro){
+      cardTema.forEach(cards=>cards.classList.toggle("border-light"));
+
+  }
 });
 
