@@ -69,11 +69,12 @@ function renderizarProdutos(lista) {
     const col = document.createElement("div");
     col.className = "mb-5 col-md-4 col-lg-3";
     col.innerHTML = `
-      <div id="cardTema" class="cardTema bg-dark card mb-5 border border-dark rounde rounded-3 text-center text-light p-0 pb-3 h-100">
-        <img src="${produto.imagem}" class="imgCards card-img-top" "alt="${produto.nome}">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">${produto.nome}</h5>
+      <div class="cardTema text-dark bg-light card mb-5 border border-dark rounded rounded-3 text-center  p-0 pb-3 h-100">
+        <img src="${produto.imagem}" class="imgCards card-img-top image-fluid" "alt="${produto.nome}">
+        <div class="  card-body d-flex flex-column">
+          <h5 class="  card-title">${produto.nome}</h5>
           <p class="card-text">${produto.descricao}</p>
+          <h3>R$${produto.preco}</h3>
           <a href="#" class="btn btn-success mt-auto">Adicionar ao carrinho</a>
         </div>
       </div>
@@ -108,15 +109,14 @@ const filtrosDiv = document.getElementById("filtros");
 btnFiltros.addEventListener("click", () => {
   filtrosDiv.classList.toggle("d-none");
 });
-
-const btnTema = document.getElementById("btnTema");
-const headerTema = document.getElementById("header");
-const navTema = document.getElementById("navTema")
+const textTema = document.getElementById("text")
 const mainTema = document.getElementById("mainTema");
 const cardTema = document.querySelectorAll(".cardTema")
 
 btnTema.addEventListener("click",() => {
   mainTema.classList.toggle("bg-dark");
-  cardTema.forEach(cards => cards.classList.toggle("bg-dark"));
-  cardTema.forEach(cards => cards.classList.toggle("text-dark"));
+  cardTema.forEach(cards=>cards.classList.toggle("border-dark"));
+  cardTema.forEach(cards=>cards.classList.toggle("bg-dark"));
+  cardTema.forEach(cards=>cards.classList.toggle("text-white"));
 });
+

@@ -16,3 +16,13 @@ header img{
 .imgCards{
     height: 200px;
 }
+.cardTema{
+    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.26);
+}
+a>img{
+    height: 24px;
+    width: 24px;
+}
+#brindeP{
+    font-size:1px ;
+}
