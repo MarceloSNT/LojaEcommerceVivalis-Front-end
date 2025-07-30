@@ -69,7 +69,7 @@ function renderizarProdutos(lista) {
     const col = document.createElement("div");
     col.className = "mb-5 col-md-4 col-lg-3";
     col.innerHTML = `
-      <div id="cardTema" class="bg-dark card mb-5 border border-dark rounde rounded-3 text-center text-light p-0 pb-3 h-100">
+      <div id="cardTema" class="cardTema bg-dark card mb-5 border border-dark rounde rounded-3 text-center text-light p-0 pb-3 h-100">
         <img src="${produto.imagem}" class="imgCards card-img-top" "alt="${produto.nome}">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${produto.nome}</h5>
@@ -111,10 +111,12 @@ btnFiltros.addEventListener("click", () => {
 
 const btnTema = document.getElementById("btnTema");
 const headerTema = document.getElementById("header");
+const navTema = document.getElementById("navTema")
 const mainTema = document.getElementById("mainTema");
-const cardTema = document.getElementById("cardTema")
+const cardTema = document.querySelectorAll(".cardTema")
 
 btnTema.addEventListener("click",() => {
-  cardTema.style.toggle("")
-
+  mainTema.classList.toggle("bg-dark");
+  cardTema.forEach(cards => cards.classList.toggle("bg-dark"));
+  cardTema.forEach(cards => cards.classList.toggle("text-dark"));
 });
