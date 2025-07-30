@@ -1,51 +1,59 @@
 const produtos = [
   {
-    nome: "Prouto 1",
-    descricao: "Uma maçã fresca e suculenta, perfeita para um lanche saudável.",
+    nome: "Brisa Serena",
+    descricao: " Elegante fragrância feminina de flores e cítricos; ideal para o dia a dia.",
     categoria: "perfume",
-    imagem: "https://www.infomoney.com.br/wp-content/uploads/2019/06/macas.jpg?fit=900%2C567&quality=50&strip=all"
+    preco: 189.90,
+    imagem: "imagens/brisa-serena-perfume.jpg"
   },
   {
-    nome: "Banana",
-    descricao: "Bananas maduras e doces, ótimas para um lanche rápido.",
+    nome: "Noite Intensa",
+    descricao: "Aroma unissex amadeirado com especiarias quentes; sofisticado para eventos especiais.",
+    categoria: "perfume",
+    preco: 219.90,
+    imagem: "imagens/noite-intensa-perfume.jpg"
+  },
+  {
+    nome: "Alpine Pure",
+    descricao: "Sabonete artesanal com aroma fresco de ervas alpinas.",
+    categoria: "sabonete",
+    preco:24.90,
+    imagem: "imagens/alpine-pure-sabonete.jpg"
+  },
+  {
+    nome: "Jasmim Sublime",
+    descricao: "Barra perfumada com essência floral suave e relaxante.",
+    categoria: "sabonete",
+    preco:29.90,
+    imagem: "imagens/jasmine-sublime-sabonete.jpg"
+  },
+  {
+    nome: "Natural Shine",
+    descricao: "Shampoo nutritivo com extrato de bambu para fios brilhantes.",
     categoria: "shampoo",
-    imagem: "https://png.pngtree.com/thumb_back/fh260/background/20241107/pngtree-a-bunch-of-ripe-yellow-bananas-image_16511040.jpg"
+    preco:39.90,
+    imagem: "imagens/natura-sunshine-shampoo.jpg"
   },
   {
-    nome: "Cenoura",
-    descricao: "Cenouras crocantes e nutritivas, ótimas para saladas ou cozidos.",
-    categoria: "sabonete",
-    imagem: "https://static.vecteezy.com/ti/fotos-gratis/t2/23803107-saudavel-1-natural-cenoura-com-branco-fundo-foto.jpeg"
-  },
-  {
-    nome: "Brócolis",
-    descricao: "Brócolis frescos e crocantes, ótimos para saladas ou refogados.",
-    categoria: "perfume",
-    imagem: "https://tempodecozimento.com.br/wp-content/uploads/2023/12/Brocolis.png"
-  },
-  {
-    nome: "Leite",
-    descricao: "Leite fresco e cremoso, ideal para o café da manhã ou receitas.",
-    categoria: "sabonete",
-    imagem: "https://hubconteudo.dasa.com.br/wp-content/uploads/2022/12/leite-300x200.jpg"
-  },
-  {
-    nome: "Frango",
-    descricao: "Peito de frango suculento, perfeito para grelhar ou assar.",
+    nome: "Frescor Revitalizante",
+    descricao: "Shampoo com mentol e cítricos para limpeza e frescor intenso.",
     categoria: "shampoo",
-    imagem: "https://static.itdg.com.br/images/auto-auto/3abf8db1abc0a92dea1a15eaa67cc08e/frango-frito-300x200.jpg"
+    preco:34.90,
+    imagem: "imagens/frescor-revitalizante-shampoo.jpg"
   },
   {
-    nome: "Bife",
-    descricao: "Bife macio e saboroso, ideal para um jantar especial.",
-    categoria: "sabonete",
-    imagem: "https://static.vecteezy.com/ti/fotos-gratis/t2/54323187-grelhado-carne-bife-com-assado-cebolas-e-alecrim-em-branco-prato-foto.jpg"
+    nome: "Amanhecer Leve",
+    descricao: "Difusor com vela de soja e fragrância de algodão e ervas matinais.",
+    categoria: "difusorAroma",
+    preco:79.90,
+    imagem: "imagens/amanhecer-leve-difusorAroma.jpg"
   },
   {
-    nome: "Queijo",
-    descricao: "Queijo curado, perfeito para tábuas de frios ou sanduíches.",
-    categoria: "perfume",
-    imagem: "https://static.vecteezy.com/ti/fotos-gratis/t2/28643036-de-madeira-borda-com-diferente-tipos-do-delicioso-queijo-em-mesa-foto.jpg"
+    nome: "Tranquilidade da Floresta",
+    descricao: "Difusor elétrico com aroma amadeirado de cedro e pinho.",
+    categoria: "difusorAroma",
+    preco:99.90,
+    imagem: "imagens/tranquilidade-floresta-difusorAroma.jpg"
   },
 
 ];
@@ -59,10 +67,10 @@ function renderizarProdutos(lista) {
   }
   lista.forEach(produto => {
     const col = document.createElement("div");
-    col.className = "row";
+    col.className = "mb-5 col-md-4 col-lg-3";
     col.innerHTML = `
-      <div class="card mb-5 col-md-4 col-lg-3 border border-light rounde rounded-3 text-center bg-dark text-light p-0 pb-3">
-        <img src="${produto.imagem}" class="card-img-top" " alt="${produto.nome}">
+      <div id="cardTema" class="bg-dark card mb-5 border border-dark rounde rounded-3 text-center text-light p-0 pb-3 h-100">
+        <img src="${produto.imagem}" class="imgCards card-img-top" "alt="${produto.nome}">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${produto.nome}</h5>
           <p class="card-text">${produto.descricao}</p>
@@ -93,3 +101,20 @@ document.getElementById("filtros").addEventListener("click", function(e) {
 
 // Inicialização
 renderizarProdutos(produtos);
+
+const btnFiltros = document.getElementById("btnFiltros");
+const filtrosDiv = document.getElementById("filtros");
+
+btnFiltros.addEventListener("click", () => {
+  filtrosDiv.classList.toggle("d-none");
+});
+
+const btnTema = document.getElementById("btnTema");
+const headerTema = document.getElementById("header");
+const mainTema = document.getElementById("mainTema");
+const cardTema = document.getElementById("cardTema")
+
+btnTema.addEventListener("click",() => {
+  cardTema.style.toggle("")
+
+});

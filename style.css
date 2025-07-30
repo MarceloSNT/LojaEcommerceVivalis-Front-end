@@ -1,13 +1,15 @@
 @charset "UTF-8";
 
 *{
-    cor-1:#377e40;
-    cor-2:#69db76;
-}
-main{
-    background-color: #377e40;
+    --cor-1:#377e40;
+    --cor-2:#69db76;
 }
 
 header img{
     width: 10%;
 }
+.imgCards{
+    height: 200px;
+    bac
+}
+

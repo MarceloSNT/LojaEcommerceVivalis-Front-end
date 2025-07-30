@@ -1,52 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" 
-    crossorigin="anonymous"
-    >
-    <link rel="stylesheet" href="index.js">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="Imagens/Vector (3).png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.js" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="Imagens/Vector (3).png"
+      type="image/x-icon"
+    />
     <title>Vivellis</title>
-</head>
-<body>
-        <header class="bg-success p-3">
-            <img src="Imagens/logo.png" alt="Imagem logo" class="d-grid mx-auto">
-        </header>
-         <div class="container text-center">
-      <h1 class="mt-5">Filtro por Categoria</h1>
-      <div class="btn-group mb-4 mt-4" id="filtros">
-        <button class="btn btn-outline-primary active" data-categoria="">
-          Todas
-        </button>
-        <button class="btn btn-outline-primary" data-categoria="perfume">
-          Frutas
-        </button>
-        <button class="btn btn-outline-primary" data-categoria="sabonete">
-          Vegetais
-        </button>
-        <button class="btn btn-outline-primary" data-categoria="shampoo">
-          Laticínios
-        </button>
-        <button class="btn btn-outline-primary" data-categoria="difusorAroma">
-          Carnes
-        </button>
+  </head>
+  <body>
+    <header id="header" class="bg-success p-5">
+      <img src="Imagens/logo.png" alt="Imagem logo" class="d-grid mx-auto" />
+      <button id="btnTema" class="btn btn-light">tema</button>
+    </header>
+    <nav class="btn-group p-2 w-100 rounded-0 bg-success p-auto">
+        <input type="text" class="btn-group rounded rounded-end-0 border border-success" placeholder="Digite aqui">
+        <span class="btn-group"><button class="btn btn-light btn-outline-success ">buscar</button>
+        <button id="btnFiltros" class="btn btn-light btn-outline-success">Filtro por Categoria</button>
+        </span>
+    </nav>
+    <div id="mainTema" class="bg-light container-fluid mx-auto text-center p-3">
+    <div id="filtros" class="d-none btn-group mb-4 mt-4 " >
+            <button class="btn btn-outline-success active" data-categoria="">
+              Todas
+            </button>
+            <button class="btn btn-outline-success" data-categoria="perfume">
+              Perfume
+            </button>
+            <button class="btn btn-outline-success" data-categoria="sabonete">
+              Sabonete
+            </button>
+            <button class="btn btn-outline-success" data-categoria="shampoo">
+              Shampoo
+            </button>
+            <button class="btn btn-outline-success" data-categoria="difusorAroma">
+              Difusor Aromático
+            </button>
+          </div>
+      <div id="mostrar-produtos" class="row">
+        <!-- Produtos serão renderizados aqui -->
       </div>
-        <div id="mostrar-produtos">
-            <!-- Produtos serão renderizados aqui -->
-
-        </div>
-
-        <script src="index.js"></script>
-        <script 
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" 
-        crossorigin="anonymous"></script>
-
-</body>
+    </div>
+    <script src="index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
