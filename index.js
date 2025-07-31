@@ -3,49 +3,49 @@ const produtos = [
     nome: "Brisa Serena",
     descricao: " Elegante fragrância feminina de flores e cítricos; ideal para o dia a dia.",
     categoria: "perfume",
-    preco: 189.90,
+    preco: 189.99,
     imagem: "imagens/brisa-serena-perfume.jpg"
   },
   {
     nome: "Noite Intensa",
     descricao: "Aroma unissex amadeirado com especiarias quentes; sofisticado.",
     categoria: "perfume",
-    preco: 219.90,
+    preco: 219.99,
     imagem: "imagens/noite-intensa-perfume.jpg"
   },
   {
     nome: "Alpine Pure",
     descricao: "Sabonete artesanal com aroma fresco de ervas alpinas.",
     categoria: "sabonete",
-    preco:24.90,
+    preco:25.00,
     imagem: "imagens/alpine-pure-sabonete.jpg"
   },
   {
     nome: "Jasmim Sublime",
     descricao: "Barra perfumada com essência floral suave e relaxante.",
     categoria: "sabonete",
-    preco:29.90,
+    preco:29.97,
     imagem: "imagens/jasmine-sublime-sabonete.jpg"
   },
   {
     nome: "Natural Shine",
     descricao: "Shampoo nutritivo com extrato de bambu para fios brilhantes.",
     categoria: "shampoo",
-    preco:39.90,
+    preco:39.98,
     imagem: "imagens/natura-sunshine-shampoo.jpg"
   },
   {
     nome: "Frescor Revitalizante",
     descricao: "Shampoo com mentol e cítricos para limpeza e frescor intenso.",
     categoria: "shampoo",
-    preco:34.90,
+    preco:34.99,
     imagem: "imagens/frescor-revitalizante-shampoo.jpg"
   },
   {
     nome: "Amanhecer Leve",
     descricao: "Difusor com vela de soja e fragrância de algodão e ervas matinais.",
     categoria: "difusorAroma",
-    preco:79.90,
+    preco:79.99,
     imagem: "imagens/amanhecer-leve-difusorAroma.jpg"
   },
   {
@@ -106,7 +106,7 @@ function filtrarInput(){
   const name = document.querySelectorAll(".card-title");
   const prod = document.querySelectorAll(".categorias");
   prod.forEach(prods => {
-    if(prods.textContent.toLowerCase().includes(filtroInput) || prods.textContent.toLowerCase().includes(filtrarInput)){
+    if(prods.textContent.toLowerCase().includes(filtroInput)){
       prods.style.display = "block";
     }else{
       prods.style.display = "none";
@@ -127,18 +127,41 @@ btnFiltros.addEventListener("click", () => {
 });
 const textTema = document.getElementById("text")
 const mainTema = document.getElementById("mainTema");
-const cardTema = document.querySelectorAll(".cardTema")
+const cardTema = document.querySelectorAll(".cardTema");
+const cardFiltro = document.querySelectorAll(".card-body")
 
 btnTema.addEventListener("click",() => {
   mainTema.classList.toggle("bg-dark");
   cardTema.forEach(cards=>cards.classList.toggle("border-dark"));
   cardTema.forEach(cards=>cards.classList.toggle("bg-dark"));
   cardTema.forEach(cards=>cards.classList.toggle("text-white"));
+});
 
 
-  if(tema === claro){
-      cardTema.forEach(cards=>cards.classList.toggle("border-light"));
+// Função para adicionar produto ao carrinho
+function addProdutoCarrinho(produtos) {
+  let itens = JSON.parse(localStorage.getItem("itens")) || [];
+  itens.push(produtos);
+  localStorage.setItem("itens", JSON.stringify(itens));
+  alert("Produto adicionado ao carrinho!");
 
+}
+
+// Delegação de evento para os botões de adicionar ao carrinho
+document.getElementById("mostrar-produtos").addEventListener("click", function(e) {
+  if (e.target.classList.contains("btn-success")) {
+    const card = e.target.closest(".card");
+    const nome = card.querySelector(".card-title").textContent;
+    const descricao = card.querySelectorAll(".card-text")[1].textContent;
+    const imagem = card.querySelector("img").getAttribute("src");
+    const produto = produtos.find(p => p.nome === nome && p.preco && p.descricao === descricao && p.imagem === imagem);
+    if (produto) {
+      addProdutoCarrinho(produto);
+    }
   }
 });
 
+document.getElementById("chatBtn").addEventListener("click", function() {
+  const chat = document.getElementById("chat");
+  chat.classList.toggle("d-none");
+});

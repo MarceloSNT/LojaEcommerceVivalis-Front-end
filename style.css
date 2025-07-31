@@ -26,3 +26,26 @@ a>img{
 #brindeP{
     font-size:1px ;
 }
+aside{
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    width: 20%;
+}
+#header{
+    margin: 0;
+}
+#mainChat{
+    border: 2px solid black;
+    width: 100%;
+    height: 60vh;
+    background-color: white;
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+}
+#inputChat{
+    width: 100%;
+    border-top: 2px solid black;
+}

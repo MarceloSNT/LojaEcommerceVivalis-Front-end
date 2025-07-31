@@ -9,7 +9,6 @@
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="index.js" />
     <link rel="stylesheet" href="style.css" />
     <link
       rel="shortcut icon"
@@ -19,8 +18,8 @@
     <title>Vivellis</title>
   </head>
   <body>
-    <header id="header" class="p-5">
-      <img src="Imagens/logo.png" alt="Imagem logo" class="d-grid mx-auto" />
+    <header class="bg-success p-3">
+      <img class="d-grid mx-auto" src="Imagens/logo.png" alt="Imagem logo" />
     </header>
     <nav
       id="navTema"
@@ -29,24 +28,21 @@
       <input
         id="inputValue"
         type="text"
-        class="btn-group rounded rounded-end-0 border border-success"
-        placeholder="Digite aqui"
+        class="btn-group rounded-start-3 rounded-end-0 border border-success"
+        placeholder=" Digite aqui"
       />
       <span class="btn-group"
         ><button
-          class="btn btn-light btn-outline-success"
+          class="btn btn-light btn-outline-success rounded-end-3"
           onclick="filtrarInput()"
         >
-          buscar
+          <img src="Imagens/lupa.png" alt="">
         </button>
-        <button id="btnFiltros" class="btn btn-light btn-outline-success">
+        <button id="btnFiltros" class="btn btn-light btn-outline-success rounded-3 mx-3">
           Filtro por Categoria
         </button>
-        <button
-          id="btnTema"
-          class="btn btn-outline-success btn-light btn-group"
-        >
-          tema
+        <button id="btnTema" class="btn btn-success rounded-circle">
+          <img src="Imagens/dia-e-noite.png" alt="">
         </button>
       </span>
       <p id="brindP" class="ms-auto text-light me-3 fst-italic">
@@ -58,7 +54,10 @@
     </nav>
     <div id="mainTema" class="container-fluid mx-auto text-center p-3">
       <div id="filtros" class="d-none btn-group mb-4 mt-4">
-        <button class="categorias btn btn-outline-success active" data-categoria="">
+        <button
+          class="categorias btn btn-outline-success active"
+          data-categoria=""
+        >
           Todas
         </button>
         <button
@@ -86,12 +85,24 @@
           Difusor Aromático
         </button>
       </div>
-      <div>
-      </div>
+      <aside class="chat row">
+        <button id="chatBtn" class="btn btn-success col-2" ><img src="Imagens/messenger.png" alt=""></button>
+        <div id="chat" class="col-10 d-none">
+          <main id="mainChat" class="rounded-3">
+            <div class="titulo bg-success rounded-0">
+              <h3>Suporte Viveliss</h3>
+              <p >Funcionamento das 8:00 às 18:00</p>
+            </div>
+            <div class="btn-group"><input id="inputChat" type="text" class="btn-group rounded-end-0 border border-success" placeholder="Digite aqui" />
+            <span><button type="reset" class="btn btn-outline-success rounded-start-0"><img src="Imagens/message.png"></button></span></div>
+            </main>
+        </div>
+      </aside>
       <div id="mostrar-produtos" class="row">
         <!-- Produtos serão renderizados aqui -->
       </div>
     </div>
+    <script src="carrinho.js"></script>
     <script src="index.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"

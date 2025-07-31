@@ -12,7 +12,7 @@ function listarCarrinho() {
 
   let total = 0;
 
-  carrinho.forEach(produto => {
+  carrinho.forEach((produto) => {
 
     total += produto.preco;
     const col = document.createElement("div");
@@ -20,7 +20,7 @@ function listarCarrinho() {
     col.innerHTML = `
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="${produto.imagem}" class=" img-fluid col-12 rounded-start" alt="${produto.nome}">
+      <img src="${produto.imagem}" class="img-fluid col-12 rounded-start" style="height: 200px" alt="${produto.nome}">
     </div>
     <div class="col-md-8">
       <div class="card-body text-start">
@@ -29,7 +29,6 @@ function listarCarrinho() {
         <h2 class="card-text">R$ ${produto.preco}</h2>
       </div>
     </div>
-  </div>
 </div>`;
     container.appendChild(col);
   });
@@ -52,8 +51,6 @@ document.getElementById("finalizarCompra").addEventListener("click", function() 
   }
   alert("Compra finalizada com sucesso!");
   localStorage.removeItem("itens");
-  listarCarrinho();
 });
-
 // Inicializa ao carregar a página
 window.addEventListener("DOMContentLoaded", listarCarrinho);
