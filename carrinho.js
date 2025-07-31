@@ -95,23 +95,26 @@ document.getElementById("limparCarrinho").addEventListener("click", function() {
   listarCarrinho();
 });
 
-// Finaliza a compra
 document.getElementById("finalizarCompra").addEventListener("click", function() {
   const carrinho = JSON.parse(localStorage.getItem("itens")) || [];
   if (carrinho.length === 0) {
     alert("O carrinho está vazio!");
     return;
   }
-  alert("Compra finalizada com sucesso!");
-  localStorage.removeItem("itens");
+  // Redireciona para a página de pagamento
+  window.location.href = "pagamento.html";
 });
+
+
+  
 // Inicializa ao carregar a página
 window.addEventListener("DOMContentLoaded", listarCarrinho);
 
 
-// brinde a cada 10 produtos
-document.getElementById("mostrar-produtos-carrinho").addEventListener("DOMNodeInserted", function() {
-  
+window.addEventListener("storage", function(e) {
+  if (e.key === "itens") {
+    listarCarrinho();
+  }
 });
 
 
