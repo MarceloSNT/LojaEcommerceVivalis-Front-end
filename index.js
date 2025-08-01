@@ -116,15 +116,11 @@ document.getElementById("inputValue").addEventListener("input", function () {
 // Inicialização
 renderizarProdutos(produtos);
 
-const btnFiltros = document.getElementById("btnFiltros");
-const filtrosDiv = document.getElementById("filtros");
 
-btnFiltros.addEventListener("click", () => {
-  filtrosDiv.classList.toggle("d-none");
-});
 function aplicarTemaNosCards() {
   const mainTema = document.getElementById("mainTema");
   const cardTema = document.querySelectorAll(".cardTema");
+  const filtrosDiv = document.getElementById("filtros");
   if (mainTema.classList.contains("bg-dark")) {
     cardTema.forEach((cards) => {
       cards.classList.add("bg-dark");

@@ -61,3 +61,7 @@ a{
     text-decoration: none;
     color: white;
 }
+.categorias:hover{
+    translate: 4px -5px;
+    transition: 0.5s;
+}
