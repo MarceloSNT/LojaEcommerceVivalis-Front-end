@@ -70,7 +70,7 @@ function renderizarProdutos(lista) {
     const col = document.createElement("div");
     col.className = "mb-5 col-md-4 col-lg-3";
     col.innerHTML = `
-      <div class="categorias cardTema text-dark bg-light card mb-5 border border-dark rounded rounded-3 text-center  p-0 pb-3 h-100">
+      <div class="categorias cardTema text-dark bg-light card mb-5  rounded rounded-3 text-center  p-0 pb-3 h-100">
         <img src="${produto.imagem}" class="imgCards image-fluid card-img-top" "alt="${produto.nome}">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${produto.nome}</h5>
@@ -127,7 +127,6 @@ function aplicarTemaNosCards() {
   const cardTema = document.querySelectorAll(".cardTema");
   if (mainTema.classList.contains("bg-dark")) {
     cardTema.forEach((cards) => {
-      cards.classList.add("border-dark");
       cards.classList.add("bg-dark");
       cards.classList.add("text-white");
       cards.classList.remove("bg-light");
@@ -135,7 +134,6 @@ function aplicarTemaNosCards() {
     });
   } else {
     cardTema.forEach((cards) => {
-      cards.classList.remove("border-dark");
       cards.classList.remove("bg-dark");
       cards.classList.remove("text-white");
       cards.classList.add("bg-light");
@@ -214,3 +212,20 @@ function verificarHorario() {
   }
 }
 document.getElementById("chatBtn").addEventListener("click", alternarChatHorario);
+
+function atualizarContadorCarrinho() {
+  const itens = JSON.parse(localStorage.getItem("itens")) || [];
+  document.getElementById("contadorCarrinho").textContent = itens.length;
+}
+
+// Chame ao carregar a página
+window.addEventListener("DOMContentLoaded", atualizarContadorCarrinho);
+
+// Chame sempre que adicionar produto ao carrinho
+function addProdutoCarrinho(produto) {
+  let itens = JSON.parse(localStorage.getItem("itens")) || [];
+  itens.push(produto);
+  localStorage.setItem("itens", JSON.stringify(itens));
+  alert("Produto adicionado ao carrinho!");
+  atualizarContadorCarrinho(); // Atualiza o contador
+}
