@@ -71,7 +71,7 @@ function renderizarProdutos(lista) {
     col.className = "mb-5 col-md-4 col-lg-3";
     col.innerHTML = `
       <div class="categorias cardTema text-dark bg-light card mb-5 border border-dark rounded rounded-3 text-center  p-0 pb-3 h-100">
-        <img src="${produto.imagem}" class="imgCards card-img-top image-fluid" "alt="${produto.nome}">
+        <img src="${produto.imagem}" class="imgCards image-fluid card-img-top" "alt="${produto.nome}">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${produto.nome}</h5>
           <p class="card-text">Categoria: ${produto.categoria}</p>
@@ -158,7 +158,7 @@ document.getElementById("filtros").addEventListener("click", function (e) {
 // Botão de alternância de tema
 btnTema.addEventListener("click", () => {
   mainTema.classList.toggle("bg-dark");
-  aplicarTemaNosCards(); // <-- reaplica o tema após alternar
+  aplicarTemaNosCards(); 
 });
 
 // Função para adicionar produto ao carrinho
