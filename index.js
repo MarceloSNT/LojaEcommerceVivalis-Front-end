@@ -2,56 +2,56 @@ const produtos = [
   {
     nome: "Brisa Serena",
     descricao: " Elegante fragrância feminina de flores e cítricos; ideal para o dia a dia.",
-    categoria: "perfume",
+    categoria: "Perfume",
     preco: 189.99,
     imagem: "imagens/brisa-serena-perfume.jpg",
   },
   {
     nome: "Noite Intensa",
     descricao: "Aroma unissex amadeirado com especiarias quentes; sofisticado.",
-    categoria: "perfume",
+    categoria: "Perfume",
     preco: 219.99,
     imagem: "imagens/noite-intensa-perfume.jpg",
   },
   {
     nome: "Alpine Pure",
     descricao: "Sabonete artesanal com aroma fresco de ervas alpinas.",
-    categoria: "sabonete",
+    categoria: "Sabonete",
     preco: 25.0,
     imagem: "imagens/alpine-pure-sabonete.jpg",
   },
   {
     nome: "Jasmim Sublime",
     descricao: "Barra perfumada com essência floral suave e relaxante.",
-    categoria: "sabonete",
+    categoria: "Sabonete",
     preco: 29.97,
     imagem: "imagens/jasmine-sublime-sabonete.jpg",
   },
   {
     nome: "Natural Shine",
     descricao: "Shampoo nutritivo com extrato de bambu para fios brilhantes.",
-    categoria: "shampoo",
+    categoria: "Shampoo",
     preco: 39.98,
     imagem: "imagens/natura-sunshine-shampoo.jpg",
   },
   {
     nome: "Frescor Revitalizante",
     descricao: "Shampoo com mentol e cítricos para limpeza e frescor intenso.",
-    categoria: "shampoo",
+    categoria: "Shampoo",
     preco: 34.99,
     imagem: "imagens/frescor-revitalizante-shampoo.jpg",
   },
   {
     nome: "Amanhecer Leve",
     descricao: "Difusor com vela de soja e fragrância de algodão e ervas matinais.",
-    categoria: "difusorAroma",
+    categoria: "DifusorAroma",
     preco: 79.99,
     imagem: "imagens/amanhecer-leve-difusorAroma.jpg",
   },
   {
     nome: "Tranquilidade da Floresta",
     descricao: "Difusor elétrico com aroma amadeirado de cedro e pinho.",
-    categoria: "difusorAroma",
+    categoria: "DifusorAroma",
     preco: 99.9,
     imagem: "imagens/tranquilidade-floresta-difusorAroma.jpg",
   },
@@ -183,7 +183,7 @@ inputValue.addEventListener("input", function () {
   const filtroInput = this.value.toLowerCase();
   const listaFiltrada = produtosComId.filter(produto =>
     produto.nome.toLowerCase().includes(filtroInput) ||
-    produto.descricao.toLowerCase().includes(filtroInput)
+    produto.categoria.toLowerCase().includes(filtroInput)
   );
   renderizarProdutos(listaFiltrada);
 });
