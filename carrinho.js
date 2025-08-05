@@ -26,7 +26,7 @@ function listarCarrinho() {
     const col = document.createElement("div");
     col.className = "col-8 my-3 mx-auto"; // Usa a coluna inteira para o card
     col.innerHTML = `
-      <div class="cardTema card shadow-sm rounded-3 bg-white text-dark">
+      <div class="cardTema mainTema card shadow-sm rounded-3 ">
         <div class="row g-0">
           <div class="col-md-4 d-flex align-items-center">
             <img src="${produto.imagem}" class="img-fluid rounded-start w-100" style="height: 200px; object-fit: cover;" alt="${produto.nome}">
@@ -54,6 +54,8 @@ function listarCarrinho() {
       </div>
     `;
     container.appendChild(col);
+      aplicarTemaNosCards();
+
   });
 
   document.getElementById("total").textContent = `R$ ${total.toFixed(2)}`;
@@ -66,7 +68,7 @@ function listarCarrinho() {
     const brindeCol = document.createElement("div");
     brindeCol.className = "col-8 my-3 mx-auto"; 
     brindeCol.innerHTML = `
-      <div class="card shadow-sm rounded-3">
+      <div class="card mainTema shadow-sm rounded-3 ">
         <div class="row g-0">
           <div class="col-md-4 d-flex align-items-center">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9n9FVsV37TKHi6GkEBKd2TLLyTVlMKlFZnQ&s" class="img-fluid rounded-start w-100" style="height: 200px; object-fit: cover;" alt="Máscara Facial - Brinde">
@@ -93,7 +95,8 @@ function listarCarrinho() {
       </div>
     `;
     container.appendChild(brindeCol);
-    
+      aplicarTemaNosCards();
+
   } else {
     mensagem.className = "alert alert-warning text-center";
     mensagem.textContent = "Finalize 10 compras para ganhar um brinde! Faltam " + (10 - comprasFinalizadas) + " compras.";
@@ -166,14 +169,16 @@ function aplicarTemaNosCards() {
     cardTema.forEach((cards) => {
       cards.classList.remove("bg-white", "text-dark");
       cards.classList.add("bg-dark", "text-white" , "border-light");
-      mainTema.classList.add("text-white", "bg-dark");
     });
+    mainTema.classList.remove("text-dark", "bg-white");
+    mainTema.classList.add("text-white", "bg-dark");
   } else {
     cardTema.forEach((cards) => {
       cards.classList.remove("bg-dark", "text-white");
       cards.classList.add("bg-white", "text-dark");
-      mainTema.classList.remove("text-white", "bg-dark");
     });
+    mainTema.classList.add("text-dark", "bg-white");
+    mainTema.classList.remove("text-white", "bg-dark");
   }
 }
 
