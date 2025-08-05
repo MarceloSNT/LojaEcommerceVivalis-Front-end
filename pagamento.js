@@ -13,10 +13,10 @@ window.addEventListener("DOMContentLoaded", function() {
   let totalComFrete = totalProdutos + frete;
 
   let resumo = `
-    <div class="container my-5">
+    <div class="container ">
       <div class="row g-4">
         <div class="col-lg-6">
-          <div class="card shadow-sm h-100">
+          <div class="card cardTema shadow-sm h-100">
             <div class="card-body">
               <h3 class="card-title mb-4">Resumo do Pedido</h3>
               <ul class="list-group list-group-flush">
@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", function() {
         </div>
 
         <div class="col-lg-6">
-          <div class="card shadow-sm h-100">
+          <div class="card cardTema shadow-sm h-100">
             <div class="card-body">
               <h5 class="mb-3">Escolha a forma de pagamento:</h5>
               <div class="d-flex flex-column gap-3 mb-4">
@@ -135,4 +135,29 @@ window.addEventListener("DOMContentLoaded", function() {
     localStorage.removeItem("itens");
     window.location.href = "principal.html";
   });
+});
+
+const mainTema = document.getElementById("mainTema");
+const btnTema = document.getElementById("btnTema");
+
+function aplicarTemaNosCards() {
+  const cardTema = document.querySelectorAll(".cardTema");
+  if (mainTema.classList.contains("bg-dark")) {
+    cardTema.forEach((cards) => {
+      cards.classList.remove("bg-white", "text-dark");
+      cards.classList.add("bg-dark", "text-white" , "border-light");
+      mainTema.classList.add("text-white", "bg-dark");
+    });
+  } else {
+    cardTema.forEach((cards) => {
+      cards.classList.remove("bg-dark", "text-white");
+      cards.classList.add("bg-white", "text-dark");
+      mainTema.classList.remove("text-white", "bg-dark");
+    });
+  }
+}
+
+btnTema.addEventListener("click", () => {
+  mainTema.classList.toggle("bg-dark");
+  aplicarTemaNosCards();
 });

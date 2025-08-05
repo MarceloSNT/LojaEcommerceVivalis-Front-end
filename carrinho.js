@@ -26,7 +26,7 @@ function listarCarrinho() {
     const col = document.createElement("div");
     col.className = "col-8 my-3 mx-auto"; // Usa a coluna inteira para o card
     col.innerHTML = `
-      <div class="card shadow-sm rounded-3">
+      <div class="cardTema card shadow-sm rounded-3 bg-white text-dark">
         <div class="row g-0">
           <div class="col-md-4 d-flex align-items-center">
             <img src="${produto.imagem}" class="img-fluid rounded-start w-100" style="height: 200px; object-fit: cover;" alt="${produto.nome}">
@@ -36,7 +36,7 @@ function listarCarrinho() {
               <div class="d-flex justify-content-between align-items-start">
                 <div class="text-start">
                   <h2 class="card-title fs-5 fw-bold">${produto.nome}</h2>
-                  <p class="card-text text-muted">${produto.descricao}</p>
+                  <p class="card-text">${produto.descricao}</p>
                 </div>
                 <button class="btn btn-outline-danger btn-sm excluir-item" data-index="${index}" title="Remover item">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
@@ -76,9 +76,8 @@ function listarCarrinho() {
               <div class="d-flex justify-content-between align-items-start">
                 <div class="text-start">
                   <h2 class="card-title fs-5 fw-bold">Máscara Facial - Brinde</h2>
-                  <p class="card-text text-muted">Uma máscara facial hidratante para cuidar da sua pele.</p>
+                  <p class="card-text">Uma máscara facial hidratante para cuidar da sua pele.</p>
                 </div>
-                
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="Green" class="bi bi-gift-fill" viewBox="0 0 16 16">
                   <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zm6 4v7.5a1.5 1.5 0 0 1-1.5 1.5H9V7zM2.5 16A1.5 1.5 0 0 1 1 14.5V7h6v9z"/>
                 </svg>
@@ -155,4 +154,30 @@ window.addEventListener("storage", function(e) {
   if (e.key === "itens") {
     listarCarrinho();
   }
+});
+
+
+const mainTema = document.getElementById("mainTema");
+const btnTema = document.getElementById("btnTema");
+
+function aplicarTemaNosCards() {
+  const cardTema = document.querySelectorAll(".cardTema");
+  if (mainTema.classList.contains("bg-dark")) {
+    cardTema.forEach((cards) => {
+      cards.classList.remove("bg-white", "text-dark");
+      cards.classList.add("bg-dark", "text-white" , "border-light");
+      mainTema.classList.add("text-white", "bg-dark");
+    });
+  } else {
+    cardTema.forEach((cards) => {
+      cards.classList.remove("bg-dark", "text-white");
+      cards.classList.add("bg-white", "text-dark");
+      mainTema.classList.remove("text-white", "bg-dark");
+    });
+  }
+}
+
+btnTema.addEventListener("click", () => {
+  mainTema.classList.toggle("bg-dark");
+  aplicarTemaNosCards();
 });

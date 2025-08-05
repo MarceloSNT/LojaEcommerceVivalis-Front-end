@@ -19,31 +19,36 @@
   </head>
   <body>
     <header class="bg-success p-3">
-      
       <a href="principal.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
 </svg> voltar</a>
       <img class="d-grid mx-auto" src="Imagens/logo.png" alt="Imagem logo" />
     </header>
-
-    <div class="container mt-5">
-      <h1 class="text-center">Carrinho de Compras</h1>
-      <div id="carrinho" class="mt-4"></div>
-      <div class="text-center mt-4 mb-4">
-        <p>Produtos no Carrinho</p>
-        <div id="mostrar-produtos-carrinho" class="container">
-          <!-- Produtos do carrinho serão renderizados aqui -->
+    <nav>
+      <button id="btnTema" class=" btn btn-success rounded-circle">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-paint-bucket" viewBox="0 0 16 16">
+  <path d="M6.192 2.78c-.458-.677-.927-1.248-1.35-1.643a3 3 0 0 0-.71-.515c-.217-.104-.56-.205-.882-.02-.367.213-.427.63-.43.896-.003.304.064.664.173 1.044.196.687.556 1.528 1.035 2.402L.752 8.22c-.277.277-.269.656-.218.918.055.283.187.593.36.903.348.627.92 1.361 1.626 2.068.707.707 1.441 1.278 2.068 1.626.31.173.62.305.903.36.262.05.64.059.918-.218l5.615-5.615c.118.257.092.512.05.939-.03.292-.068.665-.073 1.176v.123h.003a1 1 0 0 0 1.993 0H14v-.057a1 1 0 0 0-.004-.117c-.055-1.25-.7-2.738-1.86-3.494a4 4 0 0 0-.211-.434c-.349-.626-.92-1.36-1.627-2.067S8.857 3.052 8.23 2.704c-.31-.172-.62-.304-.903-.36-.262-.05-.64-.058-.918.219zM4.16 1.867c.381.356.844.922 1.311 1.632l-.704.705c-.382-.727-.66-1.402-.813-1.938a3.3 3.3 0 0 1-.131-.673q.137.09.337.274m.394 3.965c.54.852 1.107 1.567 1.607 2.033a.5.5 0 1 0 .682-.732c-.453-.422-1.017-1.136-1.564-2.027l1.088-1.088q.081.181.183.365c.349.627.92 1.361 1.627 2.068.706.707 1.44 1.278 2.068 1.626q.183.103.365.183l-4.861 4.862-.068-.01c-.137-.027-.342-.104-.608-.252-.524-.292-1.186-.8-1.846-1.46s-1.168-1.32-1.46-1.846c-.147-.265-.225-.47-.251-.607l-.01-.068zm2.87-1.935a2.4 2.4 0 0 1-.241-.561c.135.033.324.11.562.241.524.292 1.186.8 1.846 1.46.45.45.83.901 1.118 1.31a3.5 3.5 0 0 0-1.066.091 11 11 0 0 1-.76-.694c-.66-.66-1.167-1.322-1.458-1.847z"/>
+</svg>
+</button>
+    </nav>
+      <div id="mainTema" class="container-fluid pt-5">
+        <h1 class="text-center">Carrinho de Compras</h1>
+        <div id="carrinho" class="mt-4"></div>
+        <div class="text-center pt-4 pb-4">
+          <p>Produtos no Carrinho</p>
+          <div id="mostrar-produtos-carrinho" class="container">
+            <!-- Produtos do carrinho serão renderizados aqui -->
+          </div>
+          <h2 class="m-4">Total: <span id="total">R$ 0,00</span></h2>
+          <div id="mensagem" class="text-warning">
+            <!-- Mensagens brinde -->
+          </div>
+          <button id="limparCarrinho" class="btn btn-danger col-3">Limpar</button>
+          <button id="finalizarCompra" class="btn btn-success col-3">
+            Finalizar Compra
+          </button>
         </div>
-        <h2 class="m-4">Total: <span id="total">R$ 0,00</span></h2>
-        <div id="mensagem" class="text-warning">
-          <!-- Mensagens brinde -->
-        </div>
-        <button id="limparCarrinho" class="btn btn-danger col-3">Limpar</button>
-        <button id="finalizarCompra" class="btn btn-success col-3">
-          Finalizar Compra
-        </button>
       </div>
-    </div>
     <script src="carrinho.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
